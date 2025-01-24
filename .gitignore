@@ -1,0 +1,11 @@
+.DS_Store
+tmux/plugins/
+raycast
+fzf
+history.txt
+.luarc.json
+nvim/lazy-lock.json
+zsh/.zcompdump*
+zsh/.zsh_history
+zsh/.zsh_plugins.zsh
+zsh/.zprofile
