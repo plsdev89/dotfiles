@@ -196,6 +196,7 @@ run = 'move-node-to-workspace Chat'
 if.app-id = 'com.hnc.Discord'
 run = 'move-node-to-workspace Chat'
 
+# Open all other apps in Home workspace
 [[on-window-detected]]
 if.window-title-regex-substring = '.*'
 run = 'move-node-to-workspace Home'

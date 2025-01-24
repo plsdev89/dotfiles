@@ -5,3 +5,5 @@
 ```bash
 stow .
 ```
+
+![Screenshot of my dotfiles in action](screenshots/Demo.png)
