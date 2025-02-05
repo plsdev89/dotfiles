@@ -4,4 +4,3 @@
 --ignore=.gitignore
 --ignore=setup.sh
 --ignore=README.md
---ignore=screenshots/*
