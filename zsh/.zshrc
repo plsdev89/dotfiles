@@ -105,3 +105,4 @@ source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
 eval "$(starship init zsh)"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"

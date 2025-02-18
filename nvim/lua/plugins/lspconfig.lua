@@ -39,6 +39,24 @@ return {
           },
         },
       },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              allFeatures = true,
+            },
+            checkOnSave = {
+              command = "clippy",
+            },
+            diagnostics = {
+              enable = true,
+            },
+          },
+        },
+        root_dir = function(fname)
+          return util.root_pattern("Cargo.toml", "rust-project.json")(fname)
+        end,
+      },
     }
     local configs = require "nvchad.configs.lspconfig"
 

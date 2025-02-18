@@ -15,6 +15,7 @@ return {
       yaml = { "prettier" },
       markdown = { "prettier" },
       python = { "autopep8" },
+      rust = { "rustfmt", lsp_format = "fallback" },
     },
 
     format_after_save = {
