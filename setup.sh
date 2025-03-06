@@ -26,7 +26,10 @@ fi
 
 # Removes .zshenv from $HOME (if it exists) and symlinks the .zshenv file from the .dotfiles
 rm -rf $HOME/.zshenv
-ln -sw $HOME/dotfiles/.zshenv $HOME/.zshenv
+ln -sw $HOME/dotfiles/zsh/.zshenv $HOME/.zshenv
+
+# Setup Cursor
+./cursor/setup.sh
 
 # Set macOS preferences - we will run this last because this will reload the shell
 source ./.macos
