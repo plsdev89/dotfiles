@@ -86,3 +86,19 @@ This repository contains my personal Cursor configuration files, including custo
   - Bracket pair highlight
   - Active indentation highlight
   - Semantic highlighting
+
+## Extensions
+
+The following extensions are automatically installed:
+
+- QuitControl for VSCode (artdiniz.quitcontrol-vscode)
+- Lazygit Integration (chaitanyashahare.lazygit)
+- ESLint (dbaeumer.vscode-eslint)
+- Prettier (esbenp.prettier-vscode)
+- Rainbow CSV (mechatroner.rainbow-csv)
+- Docker (ms-azuretools.vscode-docker)
+- Material Icon Theme (pkief.material-icon-theme)
+- Quicktype (quicktype.quicktype)
+- Vim (vscodevim.vim)
+- GitBlame (waderyan.gitblame)
+- One Dark Pro Theme (zhuangtongfa.material-theme)
