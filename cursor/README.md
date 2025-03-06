@@ -1,6 +1,6 @@
-# VS Code Configuration
+# Cursor Configuration
 
-This repository contains my personal VS Code configuration files, including custom keybindings and settings optimized for a Vim-like editing experience.
+This repository contains my personal Cursor configuration files, including custom keybindings and settings optimized for a Vim-like editing experience.
 
 ## Settings Overview
 
