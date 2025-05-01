@@ -43,3 +43,5 @@ cask "vmware-fusion"
 cask "wezterm"
 cask "windows-app"
 cask "zoom"
+mas 'MeetingBar', id: 1532419400
+mas 'Amphetamine', id: 937984704
