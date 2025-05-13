@@ -5,4 +5,5 @@ sketchybar  --add   item linear right \
                     background.padding_left=15  \
                     icon.font="sketchybar-app-font:Regular:16.0" \
                     icon.font.size=18 \
+                    click_script="open -a 'Linear'" \
            --subscribe linear system_woke
