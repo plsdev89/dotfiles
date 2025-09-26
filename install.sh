@@ -132,19 +132,30 @@ install_dependencies() {
         if ! command_exists brew; then
             print_status "Installing Homebrew..."
             print_warning "Homebrew installation requires sudo access and interactive mode."
-            print_warning "If this fails, please install Homebrew manually first:"
-            print_warning "  /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
             
             # Check if we're in an interactive environment
             if [ -t 0 ]; then
-                /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-                
-                # Add Homebrew to PATH
-                echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
-                eval "$(/opt/homebrew/bin/brew shellenv)"
+                if /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; then
+                    # Add Homebrew to PATH
+                    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+                    eval "$(/opt/homebrew/bin/brew shellenv)"
+                    print_success "Homebrew installed successfully"
+                else
+                    print_error "Homebrew installation failed!"
+                    print_error "Please install Homebrew manually by running this command:"
+                    print_error ""
+                    print_error "  /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+                    print_error ""
+                    print_error "After installing Homebrew, run this script again."
+                    exit 1
+                fi
             else
                 print_error "Cannot install Homebrew in non-interactive mode."
-                print_error "Please install Homebrew manually first, then run this script again."
+                print_error "Please install Homebrew manually by running this command:"
+                print_error ""
+                print_error "  /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+                print_error ""
+                print_error "After installing Homebrew, run this script again."
                 exit 1
             fi
         fi
