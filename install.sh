@@ -122,6 +122,12 @@ install_dependencies() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         print_status "Detected macOS - installing dependencies..."
         
+        # Check if curl is available (needed for downloading dependencies)
+        if ! command_exists curl; then
+            print_error "curl is required but not installed. Please install curl first."
+            exit 1
+        fi
+        
         # Check for Homebrew and install if we don't have it
         if ! command_exists brew; then
             print_status "Installing Homebrew..."
@@ -266,15 +272,12 @@ main() {
     print_status "Repository: $DOTFILES_REPO"
     print_status "Installation directory: $DOTFILES_DIR"
     
-    # Check if git is available
-    if ! command_exists git; then
-        print_error "Git is required but not installed. Please install Git first."
-        exit 1
-    fi
+    # Install dependencies first (including git and curl for Linux)
+    install_dependencies
     
-    # Check if curl is available
-    if ! command_exists curl; then
-        print_error "curl is required but not installed. Please install curl first."
+    # Check if git is now available after installation
+    if ! command_exists git; then
+        print_error "Git installation failed. Please install Git manually."
         exit 1
     fi
     
@@ -283,9 +286,6 @@ main() {
     
     # Setup dotfiles repository
     setup_dotfiles_repo
-    
-    # Install dependencies
-    install_dependencies
     
     # Setup shell configuration
     setup_shell_config
