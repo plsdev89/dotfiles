@@ -5,5 +5,3 @@
 --ignore=setup.sh
 --ignore=README.md
 --ignore=Brewfile
---ignore=.macos
---ignore=cursor
