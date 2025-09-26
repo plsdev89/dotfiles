@@ -243,7 +243,7 @@ setup_shell_config() {
     if [ -f "$HOME/.zshenv" ]; then
         rm -f "$HOME/.zshenv"
     fi
-    ln -sf "$DOTFILES_DIR/zsh/.zshenv" "$HOME/.zshenv"
+    ln -sw "$DOTFILES_DIR/zsh/.zshenv" "$HOME/.zshenv"
     
     print_success "Shell configuration completed"
 }
