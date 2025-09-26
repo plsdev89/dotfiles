@@ -257,6 +257,12 @@ symlink_configs() {
         exit 1
     fi
     
+    # Create .config directory if it doesn't exist
+    if [ ! -d "$HOME/.config" ]; then
+        print_status "Creating ~/.config directory..."
+        mkdir -p "$HOME/.config"
+    fi
+    
     # Navigate to dotfiles directory
     cd "$DOTFILES_DIR"
     
