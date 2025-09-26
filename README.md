@@ -1,6 +1,6 @@
 # Dotfiles
 
-My personal dotfiles for macOS development environment setup. This repository contains configuration files and setup scripts to quickly bootstrap a new macOS system with my preferred tools and settings.
+My personal dotfiles for macOS and Linux development environment setup. This repository contains configuration files and setup scripts to quickly bootstrap a new macOS or Linux system with my preferred tools and settings.
 
 ## Features
 
@@ -18,41 +18,66 @@ My personal dotfiles for macOS development environment setup. This repository co
 
 ## Prerequisites
 
-- macOS
+- macOS or Linux (Ubuntu/Debian, Red Hat/CentOS, or Arch-based distributions)
 - Git
 - Basic command line knowledge
 
 ## Installation
 
-1. Clone this repository to your home directory:
+### Quick Install (Recommended)
+
+Run this one-liner to automatically download and install everything:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-```
-
-2. Run the setup script:
-
-```bash
-./setup.sh
+curl -fsSL https://raw.githubusercontent.com/plsdev89/dotfiles/main/install.sh | bash
 ```
 
 This will:
 
-- Install Homebrew if not present
-- Install all dependencies from Brewfile
-- Install Oh My Zsh
-- Set up Zsh configuration
-- Configure development tools
-- Apply macOS system preferences
+- Download the dotfiles repository
+- Backup any existing dotfiles
+- Install all dependencies (Homebrew, packages, etc.)
+- Set up your shell configuration
+- Symlink all configuration files
+
+### Manual Installation
+
+If you prefer to install manually:
+
+1. Clone this repository to your home directory:
+
+```bash
+git clone https://github.com/plsdev89/dotfiles.git ~/dotfiles
+cd ~/dotfiles
+```
+
+2. Run the install script:
+
+```bash
+./install.sh
+```
+
+The install script will automatically:
+
+- Backup any existing dotfiles
+- Install all system dependencies (Homebrew, packages, etc.)
+- Set up your shell configuration (Oh My Zsh, Starship, etc.)
+- Install development tools (LazyGit, NVM, pyenv, Poetry)
 - Symlink all configuration files using GNU Stow
 
 ## What's Included
 
 ### Package Management
 
+**macOS:**
+
 - Homebrew for package management
 - Brewfile with curated list of essential tools and applications
+
+**Linux:**
+
+- Native package managers (apt, yum, pacman) for system packages
+- Manual installation of development tools (Starship, LazyGit)
 
 ### Terminal & Shell
 
@@ -70,10 +95,37 @@ This will:
 
 ### Applications
 
+**macOS:**
+
 - Development: Docker, Postman, Postgres
 - Productivity: Raycast, HiddenBar
 - Communication: Discord, Slack, Telegram, Zoom
 - Browsers: Google Chrome
+
+**Linux:**
+
+- Development: Docker, Postman, Postgres (via package managers)
+- Terminal emulators: WezTerm, Ghostty
+- Communication: Discord, Slack, Telegram, Zoom (via package managers)
+- Browsers: Google Chrome (via package managers)
+
+## Repository Structure
+
+This repository is organized into logical folders for better maintainability:
+
+```
+dotfiles/
+├── install.sh               # Standalone installation script
+├── Brewfile                 # Homebrew package list
+├── packages.md              # macOS package documentation
+├── linux-packages.md        # Linux package documentation
+├── SCRIPTS.md               # Script structure documentation
+├── nvim/                    # Neovim configuration
+├── zsh/                     # Zsh shell configuration
+├── wezterm/                 # WezTerm terminal configuration
+├── ghostty/                 # Ghostty terminal configuration
+└── lazygit/                 # LazyGit configuration
+```
 
 ## Customization
 
@@ -81,8 +133,6 @@ Feel free to fork this repository and modify any configurations to match your pr
 
 - `nvim/` - Neovim configuration
 - `zsh/` - Zsh shell configuration
-- `starship/` - Starship prompt configuration
 - `wezterm/` - WezTerm terminal configuration
 - `ghostty/` - Ghostty terminal configuration
 - `lazygit/` - LazyGit configuration
-- `cursor/` - Cursor editor configuration

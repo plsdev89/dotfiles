@@ -1,7 +1,10 @@
 --target=~/.config
 --ignore=.stowrc
---ignore=DS_Store
 --ignore=.gitignore
---ignore=setup.sh
---ignore=README.md
+--ignore=DS_Store
 --ignore=Brewfile
+--ignore=linux-packages.md
+--ignore=packages.md
+--ignore=README.md
+--ignore=SCRIPTS.md
+--ignore=install.sh
