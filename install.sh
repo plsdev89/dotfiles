@@ -131,30 +131,22 @@ install_dependencies() {
         # Check for Homebrew and install if we don't have it
         if ! command_exists brew; then
             print_status "Installing Homebrew..."
-            print_warning "Homebrew installation requires sudo access and interactive mode."
+            print_warning "Homebrew installation requires sudo access."
             
-            # Check if we're in an interactive environment
-            if [ -t 0 ]; then
-                if /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; then
-                    # Add Homebrew to PATH
-                    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
-                    eval "$(/opt/homebrew/bin/brew shellenv)"
-                    print_success "Homebrew installed successfully"
-                else
-                    print_error "Homebrew installation failed!"
-                    print_error "Please install Homebrew manually by running this command:"
-                    print_error ""
-                    print_error "  /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
-                    print_error ""
-                    print_error "After installing Homebrew, run this script again."
-                    exit 1
-                fi
+            # Try to install Homebrew in non-interactive mode
+            if NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"; then
+                # Add Homebrew to PATH
+                echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+                eval "$(/opt/homebrew/bin/brew shellenv)"
+                print_success "Homebrew installed successfully"
             else
-                print_error "Cannot install Homebrew in non-interactive mode."
+                print_error "Homebrew installation failed!"
+                print_error "This usually happens when sudo access is required but not available."
                 print_error "Please install Homebrew manually by running this command:"
                 print_error ""
                 print_error "  /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
                 print_error ""
+                print_error "Or try running this script with sudo if you have the necessary permissions."
                 print_error "After installing Homebrew, run this script again."
                 exit 1
             fi
