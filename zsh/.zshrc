@@ -101,7 +101,22 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # source antidote
-source ${HOME}/.antidote/antidote.zsh
+source /opt/homebrew/opt/antidote/share/antidote/antidote.zsh
 # initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
 eval "$(starship init zsh)"
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+
+source $HOME/.backend_secrets
+alias mpv="mpv --no-video --really-quiet"
+
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+
+# Auto-start Zellij with welcome screen on terminal startup
+if [[ -z "$ZELLIJ" ]]; then
+    zellij -l welcome
+fi

@@ -2,7 +2,7 @@ notARepository: "quit"
 os:
   editPreset: nvim
 gui:
-  showBottomLine: false
+  showBottomLine: true
   theme:
     activeBorderColor:
       - magenta
