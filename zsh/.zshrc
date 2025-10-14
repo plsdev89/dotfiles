@@ -115,8 +115,6 @@ eval "$(pyenv init -)"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-
-# Auto-start Zellij with welcome screen on terminal startup
-if [[ -z "$ZELLIJ" ]]; then
-    zellij -l welcome
+if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
+    export TERM=xterm-256color
 fi
