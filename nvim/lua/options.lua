@@ -50,8 +50,3 @@ autocmd("TextYankPost", {
     vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
   end,
 })
-
-if vim.fn.getenv "TERM_PROGRAM" == "ghostty" then
-  vim.opt.title = true
-  vim.opt.titlestring = "%{fnamemodify(getcwd(), ':t')}"
-end
