@@ -108,7 +108,6 @@ eval "$(starship init zsh)"
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
 
 source $HOME/.backend_secrets
-alias mpv="mpv --no-video --really-quiet"
 
 export PATH="$HOME/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
@@ -118,3 +117,5 @@ export PATH="$HOME/.local/bin:$PATH"
 if [[ "$TERM_PROGRAM" == "ghostty" ]]; then
     export TERM=xterm-256color
 fi
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"

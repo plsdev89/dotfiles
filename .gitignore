@@ -16,3 +16,4 @@ cursor/User/History/
 cursor/User/workspaceStorage
 cursor/User/User
 .bak
+nvim/lua/plugins/lazympv.nvim/
