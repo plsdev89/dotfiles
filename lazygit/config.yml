@@ -2,17 +2,31 @@ notARepository: "quit"
 os:
   editPreset: nvim
 gui:
-  showBottomLine: false
+  showBottomLine: true
   theme:
+    # One Dark theme colors
     activeBorderColor:
-      - magenta
+      - "#61afef" # Blue
+      - bold
+    inactiveBorderColor:
+      - "#3e4452" # Muted gray
+    searchingActiveBorderColor:
+      - "#e5c07b" # Yellow
       - bold
     selectedLineBgColor:
-      - black
+      - "#2c323c" # Slightly lighter than background
     selectedRangeBgColor:
-      - black
-      - bold
+      - "#3e4452" # Muted gray
+    cherryPickedCommitBgColor:
+      - "#56b6c2" # Cyan
+    cherryPickedCommitFgColor:
+      - "#282c34" # Dark background
     unstagedChangesColor:
-      - yellow
+      - "#e5c07b" # Yellow
+    defaultFgColor:
+      - "#abb2bf" # Light gray
+    # File status colors
+    optionsTextColor:
+      - "#61afef" # Blue
   border: rounded
   nerdFontsVersion: "3"

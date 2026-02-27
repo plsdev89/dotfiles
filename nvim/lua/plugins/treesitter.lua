@@ -12,6 +12,7 @@ return {
       "tsx",
       "styled",
       "python",
+      "rust",
     },
   },
 }

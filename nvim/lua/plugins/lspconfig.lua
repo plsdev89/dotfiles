@@ -4,7 +4,6 @@ return {
     -- load defaults i.e lua_lsp
     require("nvchad.configs.lspconfig").defaults()
 
-    local lspconfig = require "lspconfig"
     local util = require "lspconfig.util"
 
     -- EXAMPLE
@@ -17,19 +16,26 @@ return {
         end,
       },
       pyright = {
+        filetypes = { "python" },
+        root_markers = {
+          "pyproject.toml",
+          "setup.py",
+          "setup.cfg",
+          "requirements.txt",
+          "Pipfile",
+          "pyrightconfig.json",
+          ".git",
+        },
         settings = {
           python = {
             analysis = {
               autoSearchPaths = true,
               useLibraryCodeForTypes = true,
+              diagnosticMode = "openFilesOnly",
               typeCheckingMode = "off",
             },
           },
         },
-        root_dir = function(fname)
-          return util.root_pattern(".git", "manage.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname)
-            or util.path.dirname(fname)
-        end,
       },
       ts_ls = {
         init_options = {
@@ -39,6 +45,24 @@ return {
           },
         },
       },
+      rust_analyzer = {
+        settings = {
+          ["rust-analyzer"] = {
+            cargo = {
+              allFeatures = true,
+            },
+            checkOnSave = {
+              command = "clippy",
+            },
+            diagnostics = {
+              enable = true,
+            },
+          },
+        },
+        root_dir = function(fname)
+          return util.root_pattern("Cargo.toml", "rust-project.json")(fname)
+        end,
+      },
     }
     local configs = require "nvchad.configs.lspconfig"
 
@@ -47,7 +71,9 @@ return {
       opts.on_attach = configs.on_attach
       opts.capabilities = configs.capabilities
 
-      lspconfig[name].setup(opts)
+      -- Use new vim.lsp.config format
+      vim.lsp.config(name, opts)
+      vim.lsp.enable(name)
     end
   end,
 }

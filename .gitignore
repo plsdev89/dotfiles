@@ -9,3 +9,11 @@ zsh/.zcompdump*
 zsh/.zsh_history
 zsh/.zsh_plugins.zsh
 zsh/.zprofile
+zsh/.zsh_sessions
+zsh/functions
+cursor/User/globalStorage
+cursor/User/History/
+cursor/User/workspaceStorage
+cursor/User/User
+.bak
+nvim/lua/plugins/lazympv.nvim/

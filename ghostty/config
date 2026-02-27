@@ -1,8 +1,10 @@
 font-size = 18
+font-feature = -calt
 background-opacity = 0.95
 background-blur-radius = 20
 macos-option-as-alt = left
 mouse-hide-while-typing = true
+theme = One Half Dark
 
 # Keybinds to match macOS since this is a VM
 keybind = super+c=copy_to_clipboard

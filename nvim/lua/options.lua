@@ -23,9 +23,30 @@ autocmd("BufReadPost", {
   end,
 })
 
--- Reload buffer when file is changed outside.
+-- Auto-reload buffers when files change externally
+-- Check for changes on focus, buffer enter, or cursor hold (but not in command window)
 autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {
-  command = "checktime",
+  pattern = "*",
+  callback = function()
+    if vim.fn.getcmdwintype() == "" then
+      vim.cmd "checktime"
+    end
+  end,
+})
+
+-- Notify when a file is reloaded from disk
+autocmd("FileChangedShellPost", {
+  pattern = "*",
+  callback = function()
+    vim.notify("File changed on disk. Buffer reloaded!", vim.log.levels.INFO)
+  end,
 })
 
 vim.wo.relativenumber = true
+
+-- Highlight on yank
+autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank { higroup = "Visual", timeout = 200 }
+  end,
+})
